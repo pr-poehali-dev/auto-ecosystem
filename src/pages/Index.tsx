@@ -3,6 +3,7 @@ import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import Icon from '@/components/ui/icon';
+import IkigaiDiagram from '@/components/IkigaiDiagram';
 
 const ikigaiData = {
   love: {
@@ -96,40 +97,15 @@ export default function Index() {
           </TabsList>
 
           <TabsContent value="ikigai" className="mt-8">
-            <div className="text-center mb-8">
-              <div className="inline-block bg-gradient-to-r from-orange-500 to-red-600 text-white px-6 py-3 rounded-2xl shadow-lg shadow-orange-500/30 mb-4">
+            <div className="text-center mb-12">
+              <div className="inline-block bg-gradient-to-r from-orange-500 to-red-600 text-white px-6 py-3 rounded-2xl shadow-lg shadow-orange-500/30 mb-8">
                 <p className="font-bold text-lg">Автоэкосистема: удобство + эмоции + статус + комьюнити</p>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-              {Object.entries(ikigaiData).map(([key, data], index) => (
-                <Card
-                  key={key}
-                  className="group bg-slate-800/50 border-slate-700 backdrop-blur-sm hover:shadow-2xl hover:scale-[1.02] transition-all duration-300 animate-scale-in"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  <div className="p-6">
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className={`w-12 h-12 ${data.color} rounded-xl flex items-center justify-center shadow-lg`}>
-                        <Icon name={data.icon as any} className="text-white" size={24} />
-                      </div>
-                      <h3 className="text-lg font-bold text-white">{data.title}</h3>
-                    </div>
-                    <ul className="space-y-2">
-                      {data.items.map((item, i) => (
-                        <li key={i} className="flex items-start gap-2 text-slate-300">
-                          <Icon name="ArrowRight" size={16} className="mt-1 text-orange-400 flex-shrink-0" />
-                          <span className="text-sm">{item}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </Card>
-              ))}
-            </div>
+            <IkigaiDiagram />
 
-            <Card className="bg-gradient-to-br from-orange-500 to-red-600 border-0 shadow-2xl shadow-orange-500/50">
+            <Card className="bg-gradient-to-br from-orange-500 to-red-600 border-0 shadow-2xl shadow-orange-500/50 mt-12">
               <div className="p-8 text-center">
                 <Icon name="Sparkles" className="text-white mx-auto mb-4" size={48} />
                 <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
